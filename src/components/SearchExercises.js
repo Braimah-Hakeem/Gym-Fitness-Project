@@ -26,10 +26,10 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         exerciseOptions
       );
       const searchedExercises = exerciseData.filter(
-        (exercise) => exercise.name.toLowerCase(search)
-          || exercise.target.toLowerCase(search)
-          || exercise.equipment.toLowerCase(search)
-          || exercise.bodyPart.toLowerCase(search)
+        (item) => item.name.toLowerCase().includes(search)
+          || item.target.toLowerCase().includes(search)
+          || item.equipment.toLowerCase().includes(search)
+          || item.bodyPart.toLowerCase().includes(search)
         )
       setSearch('');
       setExercises(searchedExercises)
