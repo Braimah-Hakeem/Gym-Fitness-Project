@@ -2,6 +2,8 @@ import React from 'react';
 import { Box, Stack, Typography } from '@mui/material'
 
 const ExerciseVideos = ({ exerciseVideos, name }) => {
+  if (!exerciseVideos.length) return 'loading...'
+  
   return (
     <Box 
       sx={{
@@ -21,7 +23,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
           gap: { lg: '110px', xs: '0'}
         }}
       >
-        {exerciseVideos?.slice(0,3).map((item, index) => (
+        {exerciseVideos?.slice(0, 6).map((item, index) => (
           <a
             key={index}
             className='exercise-video'
@@ -33,6 +35,12 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
               src={item.video.thumbnails[0].url} 
               alt={item.video.title}
             />
+            <Typography variant='h5' color='black'>
+              {item.video.title}
+            </Typography>
+            <Typography variant='h6' color='#ff2625'>
+              {item.video.channelName}
+            </Typography>
           </a>
         ))}
       </Stack>
